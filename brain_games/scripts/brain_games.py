@@ -7,13 +7,21 @@ _WELCOME1 = 'May I have your name? '
 _RESPOND = 'Hello, {}!'
 
 # print welcome message :)
+
+
 def welcome_print(txt):
-     print(txt)
+    print(txt)
 
 # define function main
+
+
 def main():
     welcome_print(_WELCOME)
     print(_RESPOND.format(welcome_user(_WELCOME1)))
-# detect use type 
+
+
+# detect use type
+
+
 if __name__ == '__main__':
-     main()
+    main()
