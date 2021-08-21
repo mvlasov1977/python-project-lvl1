@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 
-from brain_games.games.even_game import main as mane_even
+from brain_games.games.calc_game import main as main_calc
 
 
-# execute even game
-
+# execute calc game
 
 def main():
-    mane_even()
+    main_calc()
     return None
+
 
 # detect use type
 
