@@ -19,7 +19,7 @@ test:
 	echo "Test OK!"
 
 lint:
-	poetry run flake8 brain_games
+	poetry run flake8 --max-complexity 12 brain_games
 
 # This names will ignore Make process
 .PHONY: install brain-games build publish package-install test lint

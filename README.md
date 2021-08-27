@@ -10,8 +10,8 @@
 ### asciinema brain-even
 [![asciicast](https://asciinema.org/a/8vcwCnX4KtxKx8vXgXfG83L8i.svg)](https://asciinema.org/a/8vcwCnX4KtxKx8vXgXfG83L8i)
 
-### asciinama brain-calc
+### asciinema brain-calc
 [![asciicast](https://asciinema.org/a/8vcwCnX4KtxKx8vXgXfG83L8i.svg)](https://asciinema.org/a/8vcwCnX4KtxKx8vXgXfG83L8i)
 
-### asciinama brain-gcd
+### asciinema brain-gcd
 [![asciicast](https://asciinema.org/a/JVsslNEL1raVCX0AOz6IbaWak.svg)](https://asciinema.org/a/JVsslNEL1raVCX0AOz6IbaWak)
