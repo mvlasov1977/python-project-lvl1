@@ -34,7 +34,7 @@ def get_random_operation(range):
 
 def get_full_sentence(number_a, number_b, operation):
     sentence_list = []
-    sentence_list.append(str(number_a) + operation + str(number_b))
+    sentence_list.append(str(number_a) + ' ' + operation + ' ' + str(number_b))
     if operation == '+':
         sentence_list.append(str(number_a + number_b))
         return sentence_list
