@@ -10,7 +10,7 @@ _ANSWER = 'Your answer: '
 _ANSWER_FAIL = "'{}' is wrong answer ;(. Correct answer was '{}'."
 _OFFER = "Let's try again, {}!"
 _ANSWER_TRUE = 'Correct!'
-_CONGRATULATION = 'Congratulation, {}!'
+_CONGRATULATION = 'Congratulations, {}!'
 
 
 # input user
