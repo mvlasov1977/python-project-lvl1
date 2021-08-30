@@ -39,7 +39,13 @@ def gcd_calculation(a, b):
         result = a
     elif a == 1 or b == 1:
         result = 1
-    elif parity_chk(a) == 'yes' and parity_chk(b) == 'yes':
+    else:
+        result = gcd_calculation_part2(a, b)
+    return result
+
+
+def gcd_calculation_part2(a, b):
+    if parity_chk(a) == 'yes' and parity_chk(b) == 'yes':
         result = 2 * gcd_calculation(a / 2, b / 2)
     elif parity_chk(a) == 'yes' and parity_chk(b) == 'no':
         result = gcd_calculation(a / 2, b)
