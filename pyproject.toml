@@ -1,9 +1,20 @@
 [tool.poetry]
 name = "python-project-lvl1"
 version = "0.1.0"
-description = ""
+description = " Hexlet project (lvl-1)- Brain Game - You will check your mind! Come in! "
 authors = ["Maksim <mvlasov1977@gmail.com>"]
 packages = [ { include = "brain_games" }, ]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: Freeware",
+    "Natural Language :: English",
+    "Operating System :: Unix",
+    "Programming Language :: Python :: 3.6",
+    "Topic :: Games/Entertainment :: Brain-Games"    
+]
+repository = "https://github.com/mvlasov1977/python-project-lvl1"
 
 [tool.poetry.dependencies]
 python = "^3.6"

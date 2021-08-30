@@ -23,10 +23,10 @@ def get_random_int(range):
     return randint(begin, end)
 
 
-# create full sentence
+# create full sentence for question
 
 def get_full_sentence(first_number, step, secret_number, p_length):
-    s = []
+    sentence_list = []
     progression = ''
     index = 0
     while index < p_length:
@@ -39,12 +39,12 @@ def get_full_sentence(first_number, step, secret_number, p_length):
         else:
             progression = progression + str(element)
         index += 1
-    s.append(progression)
-    s.append(str(secret_element))
-    return s
+    sentence_list.append(progression)
+    sentence_list.append(str(secret_element))
+    return sentence_list
 
 
-# define function main
+# define function main brain-progression
 
 def main():
     item_count = 0

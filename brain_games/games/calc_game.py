@@ -22,45 +22,45 @@ def get_random_int(range):
     return randint(begin, end)
 
 
-# generate operation
+# generate a random operation
 
 
 def get_random_operation(range):
     return choice(range)
 
 
-# create full sentence
+# create full sentence for question
 
 
-def get_full_sentence(a, b, operation):
-    s = []
-    s.append(str(a) + operation + str(b))
+def get_full_sentence(number_a, number_b, operation):
+    sentence_list = []
+    sentence_list.append(str(number_a) + operation + str(number_b))
     if operation == '+':
-        s.append(str(a + b))
-        return s
+        sentence_list.append(str(number_a + number_b))
+        return sentence_list
     elif operation == '-':
-        s.append(str(a - b))
-        return s
+        sentence_list.append(str(number_a - number_b))
+        return sentence_list
     elif operation == '*':
-        s.append(str(a * b))
-        return s
+        sentence_list.append(str(number_a * number_b))
+        return sentence_list
     else:
         return None  # generate exception
 
 
-# define function main
+# define function main brain-calc
 
 
 def main():
     item_count = 0
-    s = []
+    calc_q_lst = []
     while item_count < _NUM_OF_CORR_ANSWERS:
-        a = get_random_int(_RANDOM_RANGE)
-        b = get_random_int(_RANDOM_RANGE)
-        o = get_random_operation(_OPERATION)
-        s.append(get_full_sentence(a, b, o))
+        oprnd_a = get_random_int(_RANDOM_RANGE)
+        oprnd_b = get_random_int(_RANDOM_RANGE)
+        calc_operation = get_random_operation(_OPERATION)
+        calc_q_lst.append(get_full_sentence(oprnd_a, oprnd_b, calc_operation))
         item_count += 1
-    cli(s, _RULE)
+    cli(calc_q_lst, _RULE)
     return None
 
 

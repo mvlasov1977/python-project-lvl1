@@ -52,27 +52,27 @@ def gcd_calculation(a, b):
     return result
 
 
-# create full sentence
+# create full sentence for question
 
-def get_full_sentence(a, b, gcd_result):
-    s = []
-    s.append('{} {}'.format(str(a), str(b)))
-    s.append(str(gcd_result))
-    return s
+def get_full_sentence(number_a, number_b, gcd_result):
+    sentence_list = []
+    sentence_list.append('{} {}'.format(str(number_a), str(number_b)))
+    sentence_list.append(str(gcd_result))
+    return sentence_list
 
 
-# define function main
+# define function main brain-gcd
 
 def main():
     item_count = 0
-    s = []
+    gcd_question_list = []
     while item_count < _NUM_OF_CORR_ANSWERS:
-        a = get_random_int(_RANDOM_RANGE)
-        b = get_random_int(_RANDOM_RANGE)
-        gcd = gcd_calculation(a, b)
-        s.append(get_full_sentence(a, b, gcd))
+        number_a = get_random_int(_RANDOM_RANGE)
+        number_b = get_random_int(_RANDOM_RANGE)
+        gcd = gcd_calculation(number_a, number_b)
+        gcd_question_list.append(get_full_sentence(number_a, number_b, gcd))
         item_count += 1
-    cli(s, _RULE)
+    cli(gcd_question_list, _RULE)
     return None
 
 

@@ -31,27 +31,27 @@ def parity_chk(number):
         return 'no'
 
 
-# create full sentence
+# create full sentence for question
 
 
-def get_full_sentence(a):
-    s = []
-    s.append(a)
-    s.append(parity_chk(a))
-    return s
+def get_full_sentence(number_a):
+    sentence_list = []
+    sentence_list.append(number_a)
+    sentence_list.append(parity_chk(number_a))
+    return sentence_list
 
 
-# define function main
+# define function main brain-even
 
 
 def main():
     item_count = 0
-    s = []
+    even_question_list = []
     while item_count < _NUM_OF_CORR_ANSWERS:
-        a = get_random_int(_RANDOM_RANGE)
-        s.append(get_full_sentence(a))
+        number_a = get_random_int(_RANDOM_RANGE)
+        even_question_list.append(get_full_sentence(number_a))
         item_count += 1
-    cli(s, _RULE)
+    cli(even_question_list, _RULE)
     return None
 
 

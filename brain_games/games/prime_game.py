@@ -19,7 +19,7 @@ def get_random_int(range):
     return randint(begin, end)
 
 
-# main number
+# calculate main number
 
 def main_number(a):
     if a >= 2:
@@ -29,29 +29,28 @@ def main_number(a):
                 return 'no'
         else:
             return 'yes'
-    else:
-        return 'no'
+    return 'no'
 
 
-# create full sentence
+# create full sentence for question
 
-def get_full_sentence(a):
-    s = []
-    s.append(str(a))
-    s.append(main_number(a))
-    return s
+def get_full_sentence(random_number):
+    sentence_list = []
+    sentence_list.append(str(random_number))
+    sentence_list.append(main_number(random_number))
+    return sentence_list
 
 
-# define function main
+# define function main brain-prime
 
 def main():
     item_count = 0
-    s = []
+    prime_question_list = []
     while item_count < _NUM_OF_CORR_ANSWERS:
         a = get_random_int(_RANDOM_RANGE)
-        s.append(get_full_sentence(a))
+        prime_question_list.append(get_full_sentence(a))
         item_count += 1
-    cli(s, _RULE)
+    cli(prime_question_list, _RULE)
     return None
 
 
