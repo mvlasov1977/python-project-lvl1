@@ -46,15 +46,15 @@ def gcd_calculation(a, b):
 
 def gcd_calculation_part2(a, b):
     if parity_chk(a) == 'yes' and parity_chk(b) == 'yes':
-        result = 2 * gcd_calculation(a / 2, b / 2)
+        result = 2 * gcd_calculation(a // 2, b // 2)
     elif parity_chk(a) == 'yes' and parity_chk(b) == 'no':
-        result = gcd_calculation(a / 2, b)
+        result = gcd_calculation(a // 2, b)
     elif parity_chk(a) == 'no' and parity_chk(b) == 'yes':
-        result = gcd_calculation(a, b / 2)
+        result = gcd_calculation(a, b // 2)
     elif a < b:
-        result = gcd_calculation((b - a) / 2, a)
+        result = gcd_calculation((b - a) // 2, a)
     elif a > b:
-        result = gcd_calculation((a - b) / 2, b)
+        result = gcd_calculation((a - b) // 2, b)
     return result
 
 
