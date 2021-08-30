@@ -22,7 +22,7 @@ def get_random_int(range):
 # calculate main number
 
 def main_number(a):
-    if a >= 2:
+    if a > 1:
         subsequence = range(2, a - 1)
         for x in subsequence:
             if a % x == 0:

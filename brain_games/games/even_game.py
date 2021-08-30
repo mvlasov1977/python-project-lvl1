@@ -45,8 +45,8 @@ def get_full_sentence(number_a):
 
 
 def main():
-    item_count = 0
     even_question_list = []
+    item_count = 0
     while item_count < _NUM_OF_CORR_ANSWERS:
         number_a = get_random_int(_RANDOM_RANGE)
         even_question_list.append(get_full_sentence(number_a))
