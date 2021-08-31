@@ -1,3 +1,7 @@
 # ignore dependencies directory
 /.venv
-/_pycache_
+_pycache_
+dist/
+*.pyc
+.pytest_cache/
+.vim
