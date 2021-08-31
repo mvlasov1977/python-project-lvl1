@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-from random import randint, choice
+from random import choice
+from brain_games.games_support import get_random_int
 from brain_games.brain_cli import cli
 
 _RULE = 'What is the result of the expression?'
@@ -12,14 +13,6 @@ _RULE = 'What is the result of the expression?'
 _RANDOM_RANGE = (1, 10)  # randomise range for randint function
 _NUM_OF_CORR_ANSWERS = 3  # required number of correct answers
 _OPERATION = ['+', '-', '*']
-
-
-# generate a random number
-
-
-def get_random_int(range):
-    begin, end = range
-    return randint(begin, end)
 
 
 # generate a random operation

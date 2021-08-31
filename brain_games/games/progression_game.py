@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from random import randint
+from brain_games.games_support import get_random_int
 from brain_games.brain_cli import cli
 
 _RULE = 'What number is missing in the progression?'
@@ -14,13 +14,6 @@ _NUM_OF_CORR_ANSWERS = 3  # required number of correct answers
 _LENGTH_OF_PROGRESSION = 10  # length of arithmetic progression
 _RANDOM_RANGE_SECRET_NUMBER = (1, _LENGTH_OF_PROGRESSION)  # rand sec num range
 _SECRET_MASK = '..'  # secret mask indicate secret number progression
-
-
-# generate a random number
-
-def get_random_int(range):
-    begin, end = range
-    return randint(begin, end)
 
 
 # create full sentence for question

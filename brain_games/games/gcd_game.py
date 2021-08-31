@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from random import randint
+from brain_games.games_support import get_random_int, parity_chk
 from brain_games.brain_cli import cli
 
 _RULE = 'Find the greatest common divisor of given numbers.'
@@ -10,22 +10,6 @@ _RULE = 'Find the greatest common divisor of given numbers.'
 
 _RANDOM_RANGE = (1, 10)  # randomise range for randint function
 _NUM_OF_CORR_ANSWERS = 3  # required number of correct answers
-
-
-# generate a random number
-
-def get_random_int(range):
-    begin, end = range
-    return randint(begin, end)
-
-
-# parity check
-
-def parity_chk(number):
-    if number % 2 == 0:
-        return 'yes'
-    else:
-        return 'no'
 
 
 # gcd calculation (binary Evklid algorythm)

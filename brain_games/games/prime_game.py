@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from random import randint
+from brain_games.games_support import get_random_int
 from brain_games.brain_cli import cli
 
 _RULE = 'Answer "yes" if given number is prime. Otherwise answer "no".'
@@ -10,13 +10,6 @@ _RULE = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 
 _RANDOM_RANGE = (1, 100)  # rand fst number for randint function
 _NUM_OF_CORR_ANSWERS = 3  # required number of correct answers
-
-
-# generate a random number
-
-def get_random_int(range):
-    begin, end = range
-    return randint(begin, end)
 
 
 # calculate main number
