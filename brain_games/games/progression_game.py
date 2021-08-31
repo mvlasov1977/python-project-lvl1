@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from brain_games.games_support import get_random_int
+from brain_games.games_support import get_random_number
 from brain_games.brain_cli import cli
 
 _RULE = 'What number is missing in the progression?'
@@ -43,11 +43,11 @@ def main():
     item_count = 0
     s = []
     while item_count < _NUM_OF_CORR_ANSWERS:
-        first_number = get_random_int(_RANDOM_RANGE_FIRST_NUMBER)
-        step = get_random_int(_RANDOM_RANGE_INCREMENT_NUMBER)
-        secret_number = get_random_int(_RANDOM_RANGE_SECRET_NUMBER)
-        len_prg = _LENGTH_OF_PROGRESSION
-        s.append(get_full_sentence(first_number, step, secret_number, len_prg))
+        first_number = get_random_number(_RANDOM_RANGE_FIRST_NUMBER)
+        step = get_random_number(_RANDOM_RANGE_INCREMENT_NUMBER)
+        secret_number = get_random_number(_RANDOM_RANGE_SECRET_NUMBER)
+        p_length = _LENGTH_OF_PROGRESSION
+        s.append(get_full_sentence(first_number, step, secret_number, p_length))
         item_count += 1
     cli(s, _RULE)
     return None

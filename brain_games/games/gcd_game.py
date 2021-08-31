@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from brain_games.games_support import get_random_int, parity_chk
+from brain_games.games_support import get_random_number, get_parity
 from brain_games.brain_cli import cli
 
 _RULE = 'Find the greatest common divisor of given numbers.'
@@ -29,11 +29,11 @@ def gcd_calculation(a, b):
 
 
 def gcd_calculation_part2(a, b):
-    if parity_chk(a) == 'yes' and parity_chk(b) == 'yes':
+    if get_parity(a) and get_parity(b):
         result = 2 * gcd_calculation(a // 2, b // 2)
-    elif parity_chk(a) == 'yes' and parity_chk(b) == 'no':
+    elif get_parity(a) and not get_parity(b):
         result = gcd_calculation(a // 2, b)
-    elif parity_chk(a) == 'no' and parity_chk(b) == 'yes':
+    elif not get_parity(a) and get_parity(b):
         result = gcd_calculation(a, b // 2)
     elif a < b:
         result = gcd_calculation((b - a) // 2, a)
@@ -57,8 +57,8 @@ def main():
     item_count = 0
     gcd_question_list = []
     while item_count < _NUM_OF_CORR_ANSWERS:
-        number_a = get_random_int(_RANDOM_RANGE)
-        number_b = get_random_int(_RANDOM_RANGE)
+        number_a = get_random_number(_RANDOM_RANGE)
+        number_b = get_random_number(_RANDOM_RANGE)
         gcd = gcd_calculation(number_a, number_b)
         gcd_question_list.append(get_full_sentence(number_a, number_b, gcd))
         item_count += 1

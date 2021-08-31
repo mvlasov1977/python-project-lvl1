@@ -9,7 +9,7 @@ from random import randint
 # generate a random number
 
 
-def get_random_int(range):
+def get_random_number(range):
     begin, end = range
     return randint(begin, end)
 
@@ -17,8 +17,8 @@ def get_random_int(range):
 # parity check
 
 
-def parity_chk(number):
+def get_parity(number):
     if number % 2 == 0:
-        return 'yes'
+        return True
     else:
-        return 'no'
+        return False

@@ -16,7 +16,7 @@ _CONGRATULATION = 'Congratulations, {}!'
 # input user
 
 
-def input_str(greeting):
+def get_user_input(greeting):
     return prompt.string(greeting)
 
 
@@ -25,24 +25,24 @@ def input_str(greeting):
 
 def cli(comparison_data, rules):  # [['1+2','3'], ['2-1','1'], ['10:2','5']]'
     print(_WEL_TO_BG)
-    user_name = input_str(_REQ_NAME)
+    user_name = get_user_input(_REQ_NAME)  # enter username
     print(_HELLO.format(user_name))
     print(rules)
-    correct_answers_cnt = 0
-    while correct_answers_cnt < len(comparison_data):
-        data_item = comparison_data[correct_answers_cnt]
+    correct_answer_cnt = 0
+    while correct_answer_cnt < len(comparison_data):
+        data_item = comparison_data[correct_answer_cnt]
         print(_QUESTION.format(data_item[0]))
-        user_response = input_str(_ANSWER)
+        user_response = get_user_input(_ANSWER)  # enter answer
         if user_response == data_item[1]:
             # correct response
-            correct_answers_cnt += 1
+            correct_answer_cnt += 1
             print(_ANSWER_TRUE)
         else:
             # end game, incorrect response
             print(_ANSWER_FAIL.format(user_response, data_item[1]))
             print(_OFFER.format(user_name))
             return False
-    if correct_answers_cnt == len(comparison_data):
+    if correct_answer_cnt == len(comparison_data):
         # You are win!
         print(_CONGRATULATION.format(user_name))
         return True
