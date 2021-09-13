@@ -16,7 +16,7 @@ def is_prime(a):
     if a > 1:
         subsequence = range(2, a - 1)
         for x in subsequence:
-            if  (a % x == 0):
+            if (a % x == 0):
                 return False
         else:
             return True
