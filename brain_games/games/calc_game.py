@@ -11,15 +11,7 @@ _RULE = 'What is the result of the expression?'
 
 
 _RANDOM_RANGE = (1, 10)  # randomise range for randint function
-_NUM_OF_CORR_ANSWERS = 3  # required number of correct answers
 _OPERATION = ['+', '-', '*']
-
-
-# generate a random operation
-
-
-def get_random_operation(range):
-    return choice(range)
 
 
 # create full sentence for question
@@ -45,16 +37,12 @@ def get_full_sentence(number_a, number_b, operation):
 
 
 def main():
-    item_count = 0
     calc_q_lst = []
-    while item_count < _NUM_OF_CORR_ANSWERS:
-        oprnd_a = get_random_number(_RANDOM_RANGE)
-        oprnd_b = get_random_number(_RANDOM_RANGE)
-        calc_operation = get_random_operation(_OPERATION)
-        calc_q_lst.append(get_full_sentence(oprnd_a, oprnd_b, calc_operation))
-        item_count += 1
-    cli(calc_q_lst, _RULE)
-    return None
+    oprnd_a = get_random_number(_RANDOM_RANGE)
+    oprnd_b = get_random_number(_RANDOM_RANGE)
+    calc_operation = choice(_OPERATION)
+    calc_q_lst.append(get_full_sentence(oprnd_a, oprnd_b, calc_operation))
+    return (calc_q_lst, _RULE)
 
 
 # detect use type
