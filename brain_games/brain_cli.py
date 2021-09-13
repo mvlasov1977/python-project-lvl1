@@ -41,7 +41,7 @@ def cli(pointer_get_game_data):  # [['1+2','3'], ['2-1','1'], ['10:2','5']]'
     correct_answer_cnt = 0
     while correct_answer_cnt < _NUM_OF_CORR_ANSWERS:
         comparison_data, rules = get_comparison_data(pointer_get_game_data)
-        data_item = comparison_data[correct_answer_cnt]
+        data_item = comparison_data
         print(_QUESTION.format(data_item[0]))
         user_response = get_user_input(_ANSWER)  # enter answer
         if user_response == data_item[1]:

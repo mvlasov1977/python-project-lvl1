@@ -2,7 +2,6 @@
 
 from random import choice
 from brain_games.games_support import get_random_number
-from brain_games.brain_cli import cli
 
 _RULE = 'What is the result of the expression?'
 
@@ -37,12 +36,10 @@ def get_full_sentence(number_a, number_b, operation):
 
 
 def main():
-    calc_q_lst = []
     oprnd_a = get_random_number(_RANDOM_RANGE)
     oprnd_b = get_random_number(_RANDOM_RANGE)
     calc_operation = choice(_OPERATION)
-    calc_q_lst.append(get_full_sentence(oprnd_a, oprnd_b, calc_operation))
-    return (calc_q_lst, _RULE)
+    return (get_full_sentence(oprnd_a, oprnd_b, calc_operation), _RULE)
 
 
 # detect use type

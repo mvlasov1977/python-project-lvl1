@@ -5,6 +5,7 @@ from brain_games.brain_cli import cli
 
 # transwer execution to core 'cli' procedure
 
+
 def main():
     cli(main_calc)
     return None
