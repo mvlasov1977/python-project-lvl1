@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 from brain_games.games_support import get_random_number
-from brain_games.brain_cli import cli
 
 _RULE = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 
@@ -9,17 +8,15 @@ _RULE = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 # initial parameters section
 
 _RANDOM_RANGE = (1, 100)  # rand fst number for randint function
-_NUM_OF_CORR_ANSWERS = 3  # required number of correct answers
 
 
 # calculate main number
 
-def main_number(a):
+def is_prime(a):
     if a > 1:
         subsequence = range(2, a - 1)
         for x in subsequence:
-            if a % x == 0:
-                return False
+            return not (a % x == 0)
         else:
             return True
     return False
@@ -30,7 +27,7 @@ def main_number(a):
 def get_full_sentence(random_number):
     sentence_list = []
     sentence_list.append(str(random_number))
-    if main_number(random_number):
+    if is_prime(random_number):
         sentence_list.append('yes')
     else:
         sentence_list.append('no')
@@ -40,14 +37,8 @@ def get_full_sentence(random_number):
 # define function main brain-prime
 
 def main():
-    item_count = 0
-    prime_question_list = []
-    while item_count < _NUM_OF_CORR_ANSWERS:
-        a = get_random_number(_RANDOM_RANGE)
-        prime_question_list.append(get_full_sentence(a))
-        item_count += 1
-    cli(prime_question_list, _RULE)
-    return None
+    a = get_random_number(_RANDOM_RANGE)
+    return (get_full_sentence(a), _RULE)
 
 
 # detect use type

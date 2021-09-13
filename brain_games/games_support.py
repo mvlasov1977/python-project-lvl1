@@ -17,8 +17,5 @@ def get_random_number(range):
 # parity check
 
 
-def get_parity(number):
-    if number % 2 == 0:
-        return True
-    else:
-        return False
+def is_even(number):
+    return number % 2 == 0

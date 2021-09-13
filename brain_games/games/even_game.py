@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
-from brain_games.games_support import get_random_number, get_parity
-from brain_games.brain_cli import cli
+from brain_games.games_support import get_random_number, is_even
 
 _RULE = 'Answer "yes" if the number is even, otherwise answer "no".'
 
@@ -10,7 +9,6 @@ _RULE = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 
 _RANDOM_RANGE = (1, 10)  # randomise range for randint function
-_NUM_OF_CORR_ANSWERS = 3  # required number of correct answers
 
 
 # create full sentence for question
@@ -19,7 +17,7 @@ _NUM_OF_CORR_ANSWERS = 3  # required number of correct answers
 def get_full_sentence(number_a):
     sentence_list = []
     sentence_list.append(number_a)
-    if get_parity(number_a):
+    if is_even(number_a):
         sentence_list.append('yes')
     else:
         sentence_list.append('no')
@@ -30,14 +28,8 @@ def get_full_sentence(number_a):
 
 
 def main():
-    even_question_list = []
-    item_count = 0
-    while item_count < _NUM_OF_CORR_ANSWERS:
-        number_a = get_random_number(_RANDOM_RANGE)
-        even_question_list.append(get_full_sentence(number_a))
-        item_count += 1
-    cli(even_question_list, _RULE)
-    return None
+    number_a = get_random_number(_RANDOM_RANGE)
+    return (get_full_sentence(number_a), _RULE)
 
 
 # detect use type

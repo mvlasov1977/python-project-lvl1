@@ -53,7 +53,7 @@ def cli(pointer_get_game_data):  # [['1+2','3'], ['2-1','1'], ['10:2','5']]'
             print(_ANSWER_FAIL.format(user_response, data_item[1]))
             print(_OFFER.format(user_name))
             return False
-    if correct_answer_cnt == len(comparison_data):
+    if correct_answer_cnt == _NUM_OF_CORR_ANSWERS:
         # You are win!
         print(_CONGRATULATION.format(user_name))
         return True

@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 
-from brain_games.games.even_game import main as mane_even
+from brain_games.games.even_game import main as main_even
+from brain_games.brain_cli import cli
 
-
-# execute even game
+# transwer execution to core 'cli' procedure
 
 
 def main():
-    mane_even()
+    cli(main_even)
     return None
+
 
 # detect use type
 

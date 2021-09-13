@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
-from brain_games.games_support import get_random_number, get_parity
-from brain_games.brain_cli import cli
+from brain_games.games_support import get_random_number, is_even
 
 _RULE = 'Find the greatest common divisor of given numbers.'
 
@@ -9,7 +8,6 @@ _RULE = 'Find the greatest common divisor of given numbers.'
 # initial parameters section
 
 _RANDOM_RANGE = (1, 10)  # randomise range for randint function
-_NUM_OF_CORR_ANSWERS = 3  # required number of correct answers
 
 
 # gcd calculation (binary Evklid algorythm)
@@ -29,11 +27,11 @@ def gcd_calculation(a, b):
 
 
 def gcd_calculation_part2(a, b):
-    if get_parity(a) and get_parity(b):
+    if is_even(a) and is_even(b):
         result = 2 * gcd_calculation(a // 2, b // 2)
-    elif get_parity(a) and not get_parity(b):
+    elif is_even(a) and not is_even(b):
         result = gcd_calculation(a // 2, b)
-    elif not get_parity(a) and get_parity(b):
+    elif not is_even(a) and is_even(b):
         result = gcd_calculation(a, b // 2)
     elif a < b:
         result = gcd_calculation((b - a) // 2, a)
@@ -54,16 +52,10 @@ def get_full_sentence(number_a, number_b, gcd_result):
 # define function main brain-gcd
 
 def main():
-    item_count = 0
-    gcd_question_list = []
-    while item_count < _NUM_OF_CORR_ANSWERS:
-        number_a = get_random_number(_RANDOM_RANGE)
-        number_b = get_random_number(_RANDOM_RANGE)
-        gcd = gcd_calculation(number_a, number_b)
-        gcd_question_list.append(get_full_sentence(number_a, number_b, gcd))
-        item_count += 1
-    cli(gcd_question_list, _RULE)
-    return None
+    number_a = get_random_number(_RANDOM_RANGE)
+    number_b = get_random_number(_RANDOM_RANGE)
+    gcd = gcd_calculation(number_a, number_b)
+    return (get_full_sentence(number_a, number_b, gcd), _RULE)
 
 
 # detect use type

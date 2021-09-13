@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 
 from brain_games.games.gcd_game import main as main_gcd
+from brain_games.brain_cli import cli
 
 
-# execute calc game
+# transwer execution to core 'cli' procedure
 
 def main():
-    main_gcd()
+    cli(main_gcd)
     return None
 
 
