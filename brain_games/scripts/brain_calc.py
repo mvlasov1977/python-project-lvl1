@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
 from brain_games.games.calc_game import main as main_calc
+from brain_games.brain_cli import cli
 
-
-# execute calc game
+# transwer execution to core 'cli' procedure
 
 def main():
-    main_calc()
+    cli(main_calc)
     return None
 
 
