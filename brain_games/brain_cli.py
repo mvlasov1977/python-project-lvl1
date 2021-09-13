@@ -12,6 +12,7 @@ _OFFER = "Let's try again, {}!"
 _ANSWER_TRUE = 'Correct!'
 _CONGRATULATION = 'Congratulations, {}!'
 
+_NUM_OF_CORR_ANSWERS = 3  # required number of correct answers
 
 # input user
 
@@ -20,16 +21,26 @@ def get_user_input(greeting):
     return prompt.string(greeting)
 
 
+# get game data for current round
+
+
+def get_comparison_data(pointer_get_game_data):
+    comparison_data, rules = pointer_get_game_data()
+    return (comparison_data, rules)
+
+
 # cli function
 
 
-def cli(comparison_data, rules):  # [['1+2','3'], ['2-1','1'], ['10:2','5']]'
+def cli(pointer_get_game_data):  # [['1+2','3'], ['2-1','1'], ['10:2','5']]'
+    comparison_data, rules = get_comparison_data(pointer_get_game_data)
     print(_WEL_TO_BG)
     user_name = get_user_input(_REQ_NAME)  # enter username
     print(_HELLO.format(user_name))
     print(rules)
     correct_answer_cnt = 0
-    while correct_answer_cnt < len(comparison_data):
+    while correct_answer_cnt < _NUM_OF_CORR_ANSWERS:
+        comparison_data, rules = get_comparison_data(pointer_get_game_data)
         data_item = comparison_data[correct_answer_cnt]
         print(_QUESTION.format(data_item[0]))
         user_response = get_user_input(_ANSWER)  # enter answer
