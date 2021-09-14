@@ -25,7 +25,7 @@ def is_prime(a):
 
 # create full sentence for question
 
-def get_full_sentence(random_number):
+def create_game_data(random_number):
     sentence_list = []
     sentence_list.append(str(random_number))
     if is_prime(random_number):
@@ -39,7 +39,7 @@ def get_full_sentence(random_number):
 
 def main():
     a = get_random_number(_RANDOM_RANGE)
-    return (get_full_sentence(a), _RULE)
+    return (create_game_data(a), _RULE)
 
 
 # detect use type

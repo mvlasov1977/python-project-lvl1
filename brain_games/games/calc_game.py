@@ -16,7 +16,7 @@ _OPERATION = ['+', '-', '*']
 # create full sentence for question
 
 
-def get_full_sentence(number_a, number_b, operation):
+def create_game_data(number_a, number_b, operation):
     sentence_list = []
     sentence_list.append(str(number_a) + ' ' + operation + ' ' + str(number_b))
     if operation == '+':
@@ -39,7 +39,7 @@ def main():
     oprnd_a = get_random_number(_RANDOM_RANGE)
     oprnd_b = get_random_number(_RANDOM_RANGE)
     calc_operation = choice(_OPERATION)
-    return (get_full_sentence(oprnd_a, oprnd_b, calc_operation), _RULE)
+    return (create_game_data(oprnd_a, oprnd_b, calc_operation), _RULE)
 
 
 # detect use type

@@ -50,11 +50,11 @@ def encryption_arithmetic_progression(arithmetic_series,
 # create full sentence for question
 
 
-def get_full_sentence(first_member,
-                      common_difference,
-                      secret_member_index,
-                      number_of_terms,
-                      secret_mask):
+def create_game_data(first_member,
+                     common_difference,
+                     secret_member_index,
+                     number_of_terms,
+                     secret_mask):
     sentence_list = []
     finite_arithmetic_progression = \
         get_finite_arithmetic_progression(first_member,
@@ -77,10 +77,10 @@ def main():
     common_difference = get_random_number(_RANDOM_RANGE_COMMON_DIFFERENCE)
     secret_member_index = get_random_number(_RANDOM_RANGE_SECRET_MEMBER_INDEX)
     number_of_terms = _NUMBER_OF_TERMS
-    return (get_full_sentence(first_member,
-                              common_difference,
-                              secret_member_index,
-                              number_of_terms, _SECRET_MASK), _RULE)
+    return (create_game_data(first_member,
+                             common_difference,
+                             secret_member_index,
+                             number_of_terms, _SECRET_MASK), _RULE)
 
 
 # detect use type

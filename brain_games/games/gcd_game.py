@@ -34,7 +34,7 @@ def get_gcd(number_a, number_b):
 
 # create full sentence for question
 
-def get_full_sentence(number_a, number_b, gcd_result):
+def create_game_data(number_a, number_b, gcd_result):
     sentence_list = []
     sentence_list.append('{} {}'.format(str(number_a), str(number_b)))
     sentence_list.append(str(gcd_result))
@@ -47,7 +47,7 @@ def main():
     number_a = get_random_number(_RANDOM_RANGE)
     number_b = get_random_number(_RANDOM_RANGE)
     gcd = get_gcd(number_a, number_b)
-    return (get_full_sentence(number_a, number_b, gcd), _RULE)
+    return (create_game_data(number_a, number_b, gcd), _RULE)
 
 
 # detect use type
