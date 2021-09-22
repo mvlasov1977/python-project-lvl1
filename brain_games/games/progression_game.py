@@ -52,8 +52,8 @@ def create_game_data(first_member,
                                           number_of_terms)
     arithmetic_series = \
         stringify_arithmetic_progression(finite_arithmetic_progression)
-    secret_member = arithmetic_series[secret_member_index]
-    arithmetic_series[secret_member_index] = secret_mask
+    secret_member = arithmetic_series[secret_member_index - 1]
+    arithmetic_series[secret_member_index - 1] = secret_mask
     game_question = _PROGRESSION_SEPARATOR.join(arithmetic_series)
     game_answer = secret_member
     return game_question, game_answer
