@@ -12,6 +12,7 @@ _RANDOM_RANGE_COMMON_DIFFERENCE = (1, 10)  # rand increment for randint function
 _NUMBER_OF_TERMS = 10  # length of arithmetic progression
 _RANDOM_RANGE_SECRET_MEMBER_INDEX = (1, _NUMBER_OF_TERMS)  # rand sec num range
 _SECRET_MASK = '..'  # secret mask indicate secret number progression
+_PROGRESSION_SEPARATOR = ' '
 
 
 # create arithmetic_progression
@@ -53,7 +54,7 @@ def create_game_data(first_member,
         stringify_arithmetic_progression(finite_arithmetic_progression)
     secret_member = arithmetic_series[secret_member_index]
     arithmetic_series[secret_member_index] = secret_mask
-    game_question = "+".join(arithmetic_series)
+    game_question = _PROGRESSION_SEPARATOR.join(arithmetic_series)
     game_answer = secret_member
     return game_question, game_answer
 
