@@ -30,21 +30,11 @@ def get_finite_arithmetic_progression(first_member,
 # convert arithmetic_progression to text
 
 
-def encryption_arithmetic_progression(arithmetic_series,
-                                      secret_member_index,
-                                      secret_mask):
-    encripted_arithmetic_series = ''
-    for (member_index, member) in enumerate(arithmetic_series):
-        if member_index != 0:
-            encripted_arithmetic_series = encripted_arithmetic_series + ' '
-        if member_index == secret_member_index - 1:
-            encripted_arithmetic_series = encripted_arithmetic_series +\
-                secret_mask
-            secret_member = member
-        else:
-            encripted_arithmetic_series = encripted_arithmetic_series +\
-                str(member)
-    return (encripted_arithmetic_series, secret_member)
+def stringify_arithmetic_progression(arithmetic_series):
+    stringify_arithmetic_series = []
+    for member in arithmetic_series:
+        stringify_arithmetic_series.append(str(member))
+    return stringify_arithmetic_series
 
 
 # create full sentence for question
@@ -55,18 +45,17 @@ def create_game_data(first_member,
                      secret_member_index,
                      number_of_terms,
                      secret_mask):
-    sentence_list = []
     finite_arithmetic_progression = \
         get_finite_arithmetic_progression(first_member,
                                           common_difference,
                                           number_of_terms)
-    arithmetic_series, secret_member = \
-        encryption_arithmetic_progression(finite_arithmetic_progression,
-                                          secret_member_index,
-                                          secret_mask)
-    sentence_list.append(arithmetic_series)
-    sentence_list.append(str(secret_member))
-    return sentence_list
+    arithmetic_series = \
+        stringify_arithmetic_progression(finite_arithmetic_progression)
+    secret_member = arithmetic_series[secret_member_index]
+    arithmetic_series[secret_member_index] = secret_mask
+    game_question = "+".join(arithmetic_series)
+    game_answer = secret_member
+    return game_question, game_answer
 
 
 # define function main brain-progression
@@ -77,10 +66,10 @@ def main():
     common_difference = get_random_number(_RANDOM_RANGE_COMMON_DIFFERENCE)
     secret_member_index = get_random_number(_RANDOM_RANGE_SECRET_MEMBER_INDEX)
     number_of_terms = _NUMBER_OF_TERMS
-    return (create_game_data(first_member,
-                             common_difference,
-                             secret_member_index,
-                             number_of_terms, _SECRET_MASK), _RULE)
+    return create_game_data(first_member,
+                            common_difference,
+                            secret_member_index,
+                            number_of_terms, _SECRET_MASK)
 
 
 # detect use type

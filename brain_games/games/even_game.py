@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from brain_games.games_support import get_random_number, is_even
+from brain_games.games_support import get_random_number
 
 _RULE = 'Answer "yes" if the number is even, otherwise answer "no".'
 
@@ -11,17 +11,23 @@ _RULE = 'Answer "yes" if the number is even, otherwise answer "no".'
 _RANDOM_RANGE = (1, 10)  # randomise range for randint function
 
 
+# parity check
+
+
+def is_even(number):
+    return number % 2 == 0
+
+
 # create full sentence for question
 
 
 def create_game_data(number_a):
-    sentence_list = []
-    sentence_list.append(number_a)
+    game_question = str(number_a)
     if is_even(number_a):
-        sentence_list.append('yes')
+        game_answer = 'yes'
     else:
-        sentence_list.append('no')
-    return sentence_list
+        game_answer = 'no'
+    return game_question, game_answer
 
 
 # define function main brain-even
@@ -29,7 +35,7 @@ def create_game_data(number_a):
 
 def main():
     number_a = get_random_number(_RANDOM_RANGE)
-    return (create_game_data(number_a), _RULE)
+    return create_game_data(number_a)
 
 
 # detect use type

@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 
-from brain_games.games.progression_game import main as main_progression
-from brain_games.brain_cli import cli
+import brain_games.games.progression_game
+from brain_games.brain_cli import execute_game
 
 
 # execute calc game
 
 
 def main():
-    cli(main_progression)
+    execute_game(brain_games.games.progression_game)
     return None
 
 

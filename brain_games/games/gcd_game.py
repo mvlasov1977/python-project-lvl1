@@ -13,32 +13,20 @@ _RANDOM_RANGE = (1, 10)  # randomise range for randint function
 # gcd calculation (binary Evklid algorythm)
 
 def get_gcd(number_a, number_b):
-    if (number_a == number_b):
-        return number_a
-    elif (number_a == 1 or number_b == 1):
-        return 1
-    elif (number_a > number_b):
-        modulo = number_a % number_b
-        if modulo == 0:
-            return number_b
-        else:
-            return get_gcd(modulo, number_b)
+    number_a, number_b = max(number_a, number_b), min(number_a, number_b)
+    modulo = number_a % number_b
+    if modulo == 0:
+        return number_b
     else:
-        modulo = number_b % number_a
-        if modulo == 0:
-            return number_a
-        else:
-            return get_gcd(modulo, number_a)
-    return None
+        return get_gcd(modulo, number_b)
 
 
 # create full sentence for question
 
 def create_game_data(number_a, number_b, gcd_result):
-    sentence_list = []
-    sentence_list.append('{} {}'.format(str(number_a), str(number_b)))
-    sentence_list.append(str(gcd_result))
-    return sentence_list
+    game_question = '{} {}'.format(str(number_a), str(number_b))
+    game_answer = str(gcd_result)
+    return game_question, game_answer
 
 
 # define function main brain-gcd
@@ -47,7 +35,7 @@ def main():
     number_a = get_random_number(_RANDOM_RANGE)
     number_b = get_random_number(_RANDOM_RANGE)
     gcd = get_gcd(number_a, number_b)
-    return (create_game_data(number_a, number_b, gcd), _RULE)
+    return create_game_data(number_a, number_b, gcd)
 
 
 # detect use type

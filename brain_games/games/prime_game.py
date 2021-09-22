@@ -26,20 +26,19 @@ def is_prime(a):
 # create full sentence for question
 
 def create_game_data(random_number):
-    sentence_list = []
-    sentence_list.append(str(random_number))
+    game_question = str(random_number)
     if is_prime(random_number):
-        sentence_list.append('yes')
+        game_answer = 'yes'
     else:
-        sentence_list.append('no')
-    return sentence_list
+        game_answer = 'no'
+    return game_question, game_answer
 
 
 # define function main brain-prime
 
 def main():
     a = get_random_number(_RANDOM_RANGE)
-    return (create_game_data(a), _RULE)
+    return create_game_data(a)
 
 
 # detect use type

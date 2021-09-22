@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 
-from brain_games.games.calc_game import main as main_calc
-from brain_games.brain_cli import cli
+import brain_games.games.calc_game
+from brain_games.brain_cli import execute_game
+
 
 # transwer execution to core 'cli' procedure
 
 
 def main():
-    cli(main_calc)
+    execute_game(brain_games.games.calc_game)
     return None
 
 

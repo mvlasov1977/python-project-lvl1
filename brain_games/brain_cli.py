@@ -12,7 +12,7 @@ _OFFER = "Let's try again, {}!"
 _ANSWER_TRUE = 'Correct!'
 _CONGRATULATION = 'Congratulations, {}!'
 
-_NUM_OF_CORR_ANSWERS = 3  # required number of correct answers
+_ROUNDS_COUNT = 3  # required number of correct answers
 
 # input user
 
@@ -24,36 +24,38 @@ def get_user_input(greeting):
 # get game data for current round
 
 
-def get_comparison_data(pointer_get_game_data):
-    comparison_data, rules = pointer_get_game_data()
-    return (comparison_data, rules)
+def get_round_data(pointer_get_game_data):
+    round_data_question, round_data_answer = pointer_get_game_data.main()
+    return (round_data_question, round_data_answer)
 
 
-# cli function
+def get_game_rule(pointer_get_game_data):
+    round_data_rule = pointer_get_game_data._RULE
+    return round_data_rule
+
+# cli function. input data ->  [['1+2','3'], ['2-1','1'], ['10:2','5']]'
 
 
-def cli(pointer_get_game_data):  # [['1+2','3'], ['2-1','1'], ['10:2','5']]'
-    comparison_data, rules = get_comparison_data(pointer_get_game_data)
+def execute_game(pointer_get_game_data):
+    round_data_rule = \
+        get_game_rule(pointer_get_game_data)
     print(_WEL_TO_BG)
     user_name = get_user_input(_REQ_NAME)  # enter username
     print(_HELLO.format(user_name))
-    print(rules)
-    correct_answer_cnt = 0
-    while correct_answer_cnt < _NUM_OF_CORR_ANSWERS:
-        comparison_data, rules = get_comparison_data(pointer_get_game_data)
-        data_item = comparison_data
-        print(_QUESTION.format(data_item[0]))
+    print(round_data_rule)
+    for _ in range(_ROUNDS_COUNT):
+        round_data_question, round_data_answer = \
+            get_round_data(pointer_get_game_data)
+        print(_QUESTION.format(round_data_question))
         user_response = get_user_input(_ANSWER)  # enter answer
-        if user_response == data_item[1]:
+        if user_response == round_data_answer:
             # correct response
-            correct_answer_cnt += 1
             print(_ANSWER_TRUE)
         else:
             # end game, incorrect response
-            print(_ANSWER_FAIL.format(user_response, data_item[1]))
+            print(_ANSWER_FAIL.format(user_response, round_data_answer))
             print(_OFFER.format(user_name))
-            return False
-    if correct_answer_cnt == _NUM_OF_CORR_ANSWERS:
-        # You are win!
-        print(_CONGRATULATION.format(user_name))
-        return True
+            return
+    # You are win!
+    print(_CONGRATULATION.format(user_name))
+    return

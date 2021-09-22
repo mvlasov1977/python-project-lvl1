@@ -17,19 +17,14 @@ _OPERATION = ['+', '-', '*']
 
 
 def create_game_data(number_a, number_b, operation):
-    sentence_list = []
-    sentence_list.append(str(number_a) + ' ' + operation + ' ' + str(number_b))
+    game_question = str(number_a) + ' ' + operation + ' ' + str(number_b)
     if operation == '+':
-        sentence_list.append(str(number_a + number_b))
-        return sentence_list
+        game_answer = number_a + number_b
     elif operation == '-':
-        sentence_list.append(str(number_a - number_b))
-        return sentence_list
+        game_answer = number_a - number_b
     elif operation == '*':
-        sentence_list.append(str(number_a * number_b))
-        return sentence_list
-    else:
-        return None  # generate exception
+        game_answer = number_a * number_b
+    return (game_question, str(game_answer))
 
 
 # define function main brain-calc
@@ -39,7 +34,7 @@ def main():
     oprnd_a = get_random_number(_RANDOM_RANGE)
     oprnd_b = get_random_number(_RANDOM_RANGE)
     calc_operation = choice(_OPERATION)
-    return (create_game_data(oprnd_a, oprnd_b, calc_operation), _RULE)
+    return create_game_data(oprnd_a, oprnd_b, calc_operation)
 
 
 # detect use type
