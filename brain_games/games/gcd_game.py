@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-from brain_games.games_support import get_random_number
+from random import randint
 
-_RULE = 'Find the greatest common divisor of given numbers.'
+GAME_RULE = 'Find the greatest common divisor of given numbers.'
 
 
 # initial parameters section
@@ -23,7 +23,7 @@ def get_gcd(number_a, number_b):
 
 # create full sentence for question
 
-def create_game_data(number_a, number_b, gcd_result):
+def create_condition_and_correct_answer(number_a, number_b, gcd_result):
     game_question = '{} {}'.format(str(number_a), str(number_b))
     game_answer = str(gcd_result)
     return game_question, game_answer
@@ -31,14 +31,16 @@ def create_game_data(number_a, number_b, gcd_result):
 
 # define function main brain-gcd
 
-def main():
-    number_a = get_random_number(_RANDOM_RANGE)
-    number_b = get_random_number(_RANDOM_RANGE)
+def create_round_data():
+    number_a = randint(*_RANDOM_RANGE)
+    number_b = randint(*_RANDOM_RANGE)
     gcd = get_gcd(number_a, number_b)
-    return create_game_data(number_a, number_b, gcd)
+    return create_condition_and_correct_answer(number_a,
+                                               number_b,
+                                               gcd)
 
 
 # detect use type
 
 if __name__ == '__main__':
-    main()
+    create_round_data()

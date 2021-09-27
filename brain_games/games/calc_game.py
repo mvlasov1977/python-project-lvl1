@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 
-from random import choice
-from brain_games.games_support import get_random_number
+from random import choice, randint
 
-_RULE = 'What is the result of the expression?'
+GAME_RULE = 'What is the result of the expression?'
 
 
 # initial parameters section
@@ -16,7 +15,7 @@ _OPERATION = ['+', '-', '*']
 # create full sentence for question
 
 
-def create_game_data(number_a, number_b, operation):
+def create_condition_and_correct_answer(number_a, number_b, operation):
     game_question = str(number_a) + ' ' + operation + ' ' + str(number_b)
     if operation == '+':
         game_answer = number_a + number_b
@@ -30,15 +29,17 @@ def create_game_data(number_a, number_b, operation):
 # define function main brain-calc
 
 
-def main():
-    oprnd_a = get_random_number(_RANDOM_RANGE)
-    oprnd_b = get_random_number(_RANDOM_RANGE)
+def create_round_data():
+    oprnd_a = randint(*_RANDOM_RANGE)
+    oprnd_b = randint(*_RANDOM_RANGE)
     calc_operation = choice(_OPERATION)
-    return create_game_data(oprnd_a, oprnd_b, calc_operation)
+    return create_condition_and_correct_answer(oprnd_a,
+                                               oprnd_b,
+                                               calc_operation)
 
 
 # detect use type
 
 
 if __name__ == '__main__':
-    main()
+    create_round_data()

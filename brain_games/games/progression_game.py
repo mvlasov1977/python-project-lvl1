@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-from brain_games.games_support import get_random_number
+from random import randint
 
-_RULE = 'What number is missing in the progression?'
+GAME_RULE = 'What number is missing in the progression?'
 
 
 # initial parameters section
@@ -41,11 +41,11 @@ def stringify_arithmetic_progression(arithmetic_series):
 # create full sentence for question
 
 
-def create_game_data(first_member,
-                     common_difference,
-                     secret_member_index,
-                     number_of_terms,
-                     secret_mask):
+def create_condition_and_correct_answer(first_member,
+                                        common_difference,
+                                        secret_member_index,
+                                        number_of_terms,
+                                        secret_mask):
     finite_arithmetic_progression = \
         get_finite_arithmetic_progression(first_member,
                                           common_difference,
@@ -62,18 +62,19 @@ def create_game_data(first_member,
 # define function main brain-progression
 
 
-def main():
-    first_member = get_random_number(_RANDOM_RANGE_FIRST_MEMBER)
-    common_difference = get_random_number(_RANDOM_RANGE_COMMON_DIFFERENCE)
-    secret_member_index = get_random_number(_RANDOM_RANGE_SECRET_MEMBER_INDEX)
+def create_round_data():
+    first_member = randint(*_RANDOM_RANGE_FIRST_MEMBER)
+    common_difference = randint(*_RANDOM_RANGE_COMMON_DIFFERENCE)
+    secret_member_index = randint(*_RANDOM_RANGE_SECRET_MEMBER_INDEX)
     number_of_terms = _NUMBER_OF_TERMS
-    return create_game_data(first_member,
-                            common_difference,
-                            secret_member_index,
-                            number_of_terms, _SECRET_MASK)
+    return create_condition_and_correct_answer(first_member,
+                                               common_difference,
+                                               secret_member_index,
+                                               number_of_terms,
+                                               _SECRET_MASK)
 
 
 # detect use type
 
 if __name__ == '__main__':
-    main()
+    create_round_data()

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-from brain_games.games_support import get_random_number
+from random import randint
 
-_RULE = 'Answer "yes" if given number is prime. Otherwise answer "no".'
+GAME_RULE = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 
 
 # initial parameters section
@@ -25,7 +25,7 @@ def is_prime(a):
 
 # create full sentence for question
 
-def create_game_data(random_number):
+def create_condition_and_correct_answer(random_number):
     game_question = str(random_number)
     if is_prime(random_number):
         game_answer = 'yes'
@@ -36,12 +36,12 @@ def create_game_data(random_number):
 
 # define function main brain-prime
 
-def main():
-    a = get_random_number(_RANDOM_RANGE)
-    return create_game_data(a)
+def create_round_data():
+    a = randint(*_RANDOM_RANGE)
+    return create_condition_and_correct_answer(a)
 
 
 # detect use type
 
 if __name__ == '__main__':
-    main()
+    create_round_data()

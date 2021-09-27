@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import brain_games.games.even_game
-from brain_games.brain_cli import execute_game
+from brain_games.brain_games_core import execute_game
 
 # transwer execution to core 'cli' procedure
 
