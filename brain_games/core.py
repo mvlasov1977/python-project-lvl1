@@ -8,15 +8,15 @@ _ROUNDS_COUNT = 3  # required number of correct answers
 # cli function. input data ->  [['1+2','3'], ['2-1','1'], ['10:2','5']]'
 
 
-def execute_game(game_module):
+def execute(game_module):
     print('Welcome to the Brain Games!')
     user_name = string('May I have your name? ')  # enter username
     print('Hello, {}!'.format(user_name))
-    print(game_module.GAME_RULE)
+    print(game_module.RULE)
     for _ in range(_ROUNDS_COUNT):
-        condition, correct_answer = \
+        question, correct_answer = \
             game_module.create_round_data()
-        print('Question: {}'.format(condition))
+        print('Question: {}'.format(question))
         user_response = string('Your answer: ')  # enter answer
         if user_response == correct_answer:
             # correct response

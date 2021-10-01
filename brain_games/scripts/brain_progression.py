@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 
-import brain_games.games.progression_game
-from brain_games.brain_games_core import execute_game
+import brain_games.games.progression
+from brain_games.core import execute
 
 
 # execute calc game
 
 
 def main():
-    execute_game(brain_games.games.progression_game)
-    return None
+    execute(brain_games.games.progression)
 
 
 # detect use type

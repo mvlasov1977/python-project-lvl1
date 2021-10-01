@@ -1,8 +1,6 @@
-#!/usr/bin/env python3
-
 from random import choice, randint
 
-GAME_RULE = 'What is the result of the expression?'
+RULE = 'What is the result of the expression?'
 
 
 # initial parameters section

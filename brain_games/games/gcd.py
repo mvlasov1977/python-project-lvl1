@@ -1,8 +1,6 @@
-#!/usr/bin/env python3
-
 from random import randint
 
-GAME_RULE = 'Find the greatest common divisor of given numbers.'
+RULE = 'Find the greatest common divisor of given numbers.'
 
 
 # initial parameters section

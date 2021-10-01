@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 
-import brain_games.games.calc_game
-from brain_games.brain_games_core import execute_game
+import brain_games.games.calc
+from brain_games.core import execute
 
 
 # transwer execution to core 'cli' procedure
 
 
 def main():
-    execute_game(brain_games.games.calc_game)
-    return None
+    execute(brain_games.games.calc)
 
 
 # detect use type
